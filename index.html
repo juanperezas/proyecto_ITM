@@ -53,61 +53,59 @@
   </div>
 </section>
 
-<section id="edificio" class="edificio">
-  <h2 class="section__title">La universidad, ventana por ventana</h2>
-  <p class="section__subtitle">Cada ventana es una sede. Haz clic para ver cuántos estudiantes tiene y en qué facultades.</p>
-  <div class="edificio__wrap">
-    <svg id="svgEdificio" viewBox="0 0 800 500" class="edificio__svg" aria-label="Ilustración del edificio de la universidad">
-      <!-- Cielo / fondo -->
-      <rect x="0" y="0" width="800" height="500" fill="url(#cielo)"/>
-      <defs>
-        <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#dceeff"/>
-          <stop offset="100%" stop-color="#f4f9ff"/>
-        </linearGradient>
-      </defs>
+<!-- SECCIÓN EDIFICIO / CAMPUS INTERACTIVO -->
+<section id="sedes" class="campus-section">
+  <div class="container">
+    <h2>Sedes de la Universidad</h2>
+    <p class="subtitle">Haz clic en cualquier bloque o pin para explorar sus facultades y programas.</p>
 
-      <!-- Cuerpo principal del edificio -->
-      <rect x="120" y="90" width="560" height="380" rx="6" fill="#8a6a52" stroke="#5c4433" stroke-width="4"/>
-      <!-- Techo -->
-      <polygon points="100,90 400,20 700,90" fill="#5c4433"/>
-      <!-- Puerta -->
-      <rect x="370" y="410" width="60" height="60" fill="#3d2b1f"/>
-      <!-- Letrero -->
-      <text x="400" y="70" text-anchor="middle" fill="#3d2b1f" font-size="20" font-weight="700">UNIVERSIDAD</text>
+    <!-- Ilustración Ilustrada con Hotspots -->
+    <div class="campus-illustration-wrapper">
+      <img src="https://img.freepik.com/free-vector/university-campus-building-flat-illustration_23-2148166288.jpg" alt="Campus Universitario" class="campus-img">
+      
+      <!-- Pines interactivos posicionados sobre la ilustración -->
+      <button class="campus-hotspot" style="top: 35%; left: 22%;" data-sede="Fraternidad">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Fraternidad</span>
+      </button>
 
-      <!-- Ventanas (grupo por sede) -->
-      <g class="ventana" data-sede="FRATERNIDAD MEDELLÍN">
-        <rect x="150" y="130" width="140" height="90" rx="4"/>
-        <text x="220" y="180" text-anchor="middle">Fraternidad</text>
-      </g>
-      <g class="ventana" data-sede="ROBLEDO">
-        <rect x="330" y="130" width="140" height="90" rx="4"/>
-        <text x="400" y="180" text-anchor="middle">Robledo</text>
-      </g>
-      <g class="ventana" data-sede="VIRTUAL">
-        <rect x="510" y="130" width="140" height="90" rx="4"/>
-        <text x="580" y="180" text-anchor="middle">Virtual</text>
-      </g>
-      <g class="ventana" data-sede="FLORESTA">
-        <rect x="150" y="250" width="140" height="90" rx="4"/>
-        <text x="220" y="300" text-anchor="middle">Floresta</text>
-      </g>
-      <g class="ventana" data-sede="CASTILLA">
-        <rect x="330" y="250" width="140" height="90" rx="4"/>
-        <text x="400" y="300" text-anchor="middle">Castilla</text>
-      </g>
-      <g class="ventana" data-sede="Otras sedes">
-        <rect x="510" y="250" width="140" height="90" rx="4"/>
-        <text x="580" y="300" text-anchor="middle">Otras sedes</text>
-      </g>
-    </svg>
+      <button class="campus-hotspot" style="top: 25%; left: 50%;" data-sede="Robledo">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Robledo</span>
+      </button>
 
-    <aside id="panelSede" class="panel-sede">
-      <p class="panel-sede__hint">Haz clic en una ventana para ver el detalle de esa sede.</p>
-    </aside>
+      <button class="campus-hotspot" style="top: 35%; left: 78%;" data-sede="Virtual">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Virtual</span>
+      </button>
+
+      <button class="campus-hotspot" style="top: 65%; left: 28%;" data-sede="Floresta">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Floresta</span>
+      </button>
+
+      <button class="campus-hotspot" style="top: 65%; left: 52%;" data-sede="Castilla">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Castilla</span>
+      </button>
+
+      <button class="campus-hotspot" style="top: 65%; left: 75%;" data-sede="Otras sedes">
+        <span class="hotspot-pin">📍</span>
+        <span class="hotspot-label">Otras Sedes</span>
+      </button>
+    </div>
   </div>
 </section>
+
+<!-- INTERFAZ MODAL (POP-UP EMERGENTE) -->
+<div id="modalSede" class="modal-overlay">
+  <div class="modal-card">
+    <button class="modal-close" id="cerrarModal">&times;</button>
+    <div id="modalSedeContenido">
+      <!-- El contenido interactivo de las carreras se inyectará dinámicamente aquí -->
+    </div>
+  </div>
+</div>
 
 <section id="areas" class="areas">
   <h2 class="section__title">Áreas del conocimiento</h2>
