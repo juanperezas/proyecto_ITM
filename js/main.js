@@ -1,4 +1,4 @@
-// js/main.js - Lógica principal del dashboard interactivo
+// js/main.js - Lógica principal del dashboard interactivo con Modal y Campus
 
 document.addEventListener("DOMContentLoaded", function () {
   // Cargar el archivo JSON procesado con los datos de matriculados
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // 2. Animar los números de las tarjetas estadísticas
       animarContadores();
 
-      // 3. Configurar la interactividad con las ventanas del edificio
+      // 3. Configurar la interactividad del campus y modal de sedes
       configurarEdificio(data);
 
       // 4. Renderizar las tarjetas de Áreas de Conocimiento
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => console.error("Error al cargar los datos:", error));
 });
 
-// Anima los contadores numéricos (29.010 matriculados, 4 facultades, etc.)
+// Anima los contadores numéricos (29.010 matriculados, facultades, etc.)
 function animarContadores() {
   const contadores = document.querySelectorAll('.stat-card__num');
 
@@ -64,50 +64,84 @@ function animarContadores() {
   }
 }
 
-// Configura la interactividad de las ventanas en el edificio de la universidad
+// Diccionario de figuras e íconos por facultad/carrera
+const ICONOS_FACULTAD = {
+  'Artes y Humanidades': '🎨',
+  'Ciencias Económicas y Administrativas': '📊',
+  'Ciencias Exactas y Aplicadas': '🧪',
+  'Ingenierías': '⚙️',
+  'Derecho y Ciencias Políticas': '⚖️',
+  'Educación': '📚',
+  'General': '🎓'
+};
+
+// Configura la interactividad de las sedes (Hotspots) y la interfaz modal
 function configurarEdificio(data) {
-  const ventanas = document.querySelectorAll('.ventana');
-  const panelSede = document.getElementById('panelSede');
+  const hotspots = document.querySelectorAll('.campus-hotspot');
+  const modalOverlay = document.getElementById('modalSede');
+  const modalContenido = document.getElementById('modalSedeContenido');
+  const btnCerrar = document.getElementById('cerrarModal');
 
-  if (!ventanas.length || !panelSede) return;
+  if (!hotspots.length || !modalOverlay || !modalContenido) return;
 
-  ventanas.forEach(ventana => {
-    ventana.addEventListener('click', function () {
+  // Abrir interfaz modal con tarjetas detalladas al hacer clic en un punto del campus
+  hotspots.forEach(hotspot => {
+    hotspot.addEventListener('click', function () {
       const nombreSede = this.getAttribute('data-sede');
 
-      // Buscar el total de estudiantes de la sede seleccionada
-      const infoSede = data.por_sede.find(s => s.nombre === nombreSede);
+      // Buscar total de estudiantes de la sede
+      const infoSede = data.por_sede ? data.por_sede.find(s => s.nombre === nombreSede) : null;
       const totalEstudiantes = infoSede ? infoSede.total.toLocaleString('es-CO') : 'N/A';
 
       // Filtrar las facultades asociadas a esta sede
-      const facultadesSede = data.sedes_por_facultad.filter(
+      const facultadesSede = data.sedes_por_facultad ? data.sedes_por_facultad.filter(
         item => item['Sede Agrupada'] === nombreSede
-      );
+      ) : [];
 
-      let htmlFacultades = '';
+      // Generar tarjetas con figuras por facultad
+      let tarjetasHTML = '';
       if (facultadesSede.length > 0) {
-        htmlFacultades = '<ul>' +
-          facultadesSede.map(f => `
-            <li>
-              <span>${f.Facultad}</span>
-              <strong>${f.total.toLocaleString('es-CO')}</strong>
-            </li>
-          `).join('') +
-          '</ul>';
+        tarjetasHTML = '<div class="facultades-grid">' +
+          facultadesSede.map(f => {
+            const icono = ICONOS_FACULTAD[f.Facultad] || '🏛️';
+            return `
+              <div class="facultad-card">
+                <div class="facultad-icon">${icono}</div>
+                <div class="facultad-nombre">${f.Facultad}</div>
+                <div class="facultad-total">${f.total.toLocaleString('es-CO')} estudiantes</div>
+              </div>
+            `;
+          }).join('') +
+          '</div>';
       } else {
-        htmlFacultades = '<p>No se registraron datos específicos por facultad para esta sede.</p>';
+        tarjetasHTML = '<p style="text-align:center; padding: 20px; color: var(--gris);">No se registraron facultades específicas para esta sede.</p>';
       }
 
-      // Actualizar el contenido del panel lateral en pantalla
-      panelSede.innerHTML = `
-        <h3>🏛️ ${nombreSede}</h3>
-        <p style="margin-bottom: 12px; font-weight: 700; color: var(--dorado);">
-          Total matriculados: ${totalEstudiantes} estudiantes
-        </p>
-        <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--azul);">Estudiantes por facultad:</h4>
-        ${htmlFacultades}
+      // Inyectar HTML en la ventana modal
+      modalContenido.innerHTML = `
+        <div class="modal-header">
+          <h3>🏛️ Sede ${nombreSede}</h3>
+          <span class="modal-badge">Total matriculados: ${totalEstudiantes} estudiantes</span>
+        </div>
+        <h4 style="color: var(--azul); margin-top: 15px; text-align: center;">Facultades y Programas Destacados</h4>
+        ${tarjetasHTML}
       `;
+
+      // Mostrar el modal
+      modalOverlay.classList.add('activo');
     });
+  });
+
+  // Cerrar el modal al hacer clic en el botón X
+  if (btnCerrar) {
+    btnCerrar.addEventListener('click', () => modalOverlay.classList.remove('activo'));
+  }
+
+  // Cerrar el modal al hacer clic fuera del recuadro (overlay)
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.remove('activo');
+    }
   });
 }
 
@@ -131,7 +165,7 @@ function renderizarAreas(data) {
 
   data.por_area_conocimiento.forEach(area => {
     const emoji = EMOJIS_AREA[area.icono] || '📚';
-    const programas = data.programas_por_area[area.nombre] || [];
+    const programas = data.programas_por_area ? data.programas_por_area[area.nombre] || [] : [];
 
     const card = document.createElement('div');
     card.className = 'area-card';
