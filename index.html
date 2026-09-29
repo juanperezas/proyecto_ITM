@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matriculados 2026 · Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav__logo">Matriculados 2026</span>
+  <div class="nav__links">
+    <a href="#panorama">Panorama</a>
+    <a href="#edificio">Sedes</a>
+    <a href="#areas">Áreas</a>
+    <a href="#perfil">Perfil</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1 class="hero__title">29.010 estudiantes.<br>Una universidad.</h1>
+  <p class="hero__subtitle">Un recorrido por quiénes son los matriculados de 2026: dónde estudian, qué estudian y de dónde vienen.</p>
+  <div class="hero__scroll">Desliza para explorar ↓</div>
+</header>
+
+<section id="panorama" class="panorama">
+  <h2 class="section__title">Panorama general</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-card__num" data-count="29010">0</span>
+      <span class="stat-card__label">Matriculados</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__num" data-count="4">0</span>
+      <span class="stat-card__label">Facultades</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__num" data-count="7">0</span>
+      <span class="stat-card__label">Áreas del conocimiento</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__num" data-count="6">0</span>
+      <span class="stat-card__label">Sedes</span>
+    </div>
+  </div>
+  <div class="chart-box">
+    <h3>Modalidad y tipo de programa</h3>
+    <div class="chart-pair">
+      <canvas id="chartModalidad"></canvas>
+      <canvas id="chartTipoPrograma"></canvas>
+    </div>
+  </div>
+</section>
+
+<section id="edificio" class="edificio">
+  <h2 class="section__title">La universidad, ventana por ventana</h2>
+  <p class="section__subtitle">Cada ventana es una sede. Haz clic para ver cuántos estudiantes tiene y en qué facultades.</p>
+  <div class="edificio__wrap">
+    <svg id="svgEdificio" viewBox="0 0 800 500" class="edificio__svg" aria-label="Ilustración del edificio de la universidad">
+      <!-- Cielo / fondo -->
+      <rect x="0" y="0" width="800" height="500" fill="url(#cielo)"/>
+      <defs>
+        <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#dceeff"/>
+          <stop offset="100%" stop-color="#f4f9ff"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Cuerpo principal del edificio -->
+      <rect x="120" y="90" width="560" height="380" rx="6" fill="#8a6a52" stroke="#5c4433" stroke-width="4"/>
+      <!-- Techo -->
+      <polygon points="100,90 400,20 700,90" fill="#5c4433"/>
+      <!-- Puerta -->
+      <rect x="370" y="410" width="60" height="60" fill="#3d2b1f"/>
+      <!-- Letrero -->
+      <text x="400" y="70" text-anchor="middle" fill="#3d2b1f" font-size="20" font-weight="700">UNIVERSIDAD</text>
+
+      <!-- Ventanas (grupo por sede) -->
+      <g class="ventana" data-sede="FRATERNIDAD MEDELLÍN">
+        <rect x="150" y="130" width="140" height="90" rx="4"/>
+        <text x="220" y="180" text-anchor="middle">Fraternidad</text>
+      </g>
+      <g class="ventana" data-sede="ROBLEDO">
+        <rect x="330" y="130" width="140" height="90" rx="4"/>
+        <text x="400" y="180" text-anchor="middle">Robledo</text>
+      </g>
+      <g class="ventana" data-sede="VIRTUAL">
+        <rect x="510" y="130" width="140" height="90" rx="4"/>
+        <text x="580" y="180" text-anchor="middle">Virtual</text>
+      </g>
+      <g class="ventana" data-sede="FLORESTA">
+        <rect x="150" y="250" width="140" height="90" rx="4"/>
+        <text x="220" y="300" text-anchor="middle">Floresta</text>
+      </g>
+      <g class="ventana" data-sede="CASTILLA">
+        <rect x="330" y="250" width="140" height="90" rx="4"/>
+        <text x="400" y="300" text-anchor="middle">Castilla</text>
+      </g>
+      <g class="ventana" data-sede="Otras sedes">
+        <rect x="510" y="250" width="140" height="90" rx="4"/>
+        <text x="580" y="300" text-anchor="middle">Otras sedes</text>
+      </g>
+    </svg>
+
+    <aside id="panelSede" class="panel-sede">
+      <p class="panel-sede__hint">Haz clic en una ventana para ver el detalle de esa sede.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="areas" class="areas">
+  <h2 class="section__title">Áreas del conocimiento</h2>
+  <p class="section__subtitle">Haz clic en cada tarjeta para ver los programas con más matriculados.</p>
+  <div id="gridAreas" class="areas__grid"></div>
+</section>
+
+<section id="perfil" class="perfil">
+  <h2 class="section__title">Perfil de los estudiantes</h2>
+  <div class="chart-box">
+    <div class="chart-pair chart-pair--three">
+      <div><h3>Sexo</h3><canvas id="chartSexo"></canvas></div>
+      <div><h3>Estrato</h3><canvas id="chartEstrato"></canvas></div>
+      <div><h3>Ciudad de nacimiento (top 10)</h3><canvas id="chartCiudades"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Datos: matriculados 2026, limpiados y agregados con Python (pandas).</p>
+  <p>Hecho con HTML, CSS, Chart.js y GSAP · Publicado en GitHub Pages</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

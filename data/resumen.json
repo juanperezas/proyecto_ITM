@@ -1,0 +1,478 @@
+{
+  "total_matriculados": 29010,
+  "anio": 2026,
+  "por_sede": [
+    {
+      "nombre": "FRATERNIDAD MEDELLÍN",
+      "total": 13653
+    },
+    {
+      "nombre": "ROBLEDO",
+      "total": 8254
+    },
+    {
+      "nombre": "VIRTUAL",
+      "total": 3704
+    },
+    {
+      "nombre": "Otras sedes",
+      "total": 1699
+    },
+    {
+      "nombre": "FLORESTA",
+      "total": 1502
+    },
+    {
+      "nombre": "CASTILLA",
+      "total": 198
+    }
+  ],
+  "por_facultad": [
+    {
+      "nombre": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 12402
+    },
+    {
+      "nombre": "Facultad de Ingenierías",
+      "total": 10342
+    },
+    {
+      "nombre": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 3472
+    },
+    {
+      "nombre": "Facultad de Artes y Humanidades",
+      "total": 2794
+    }
+  ],
+  "por_area_conocimiento": [
+    {
+      "nombre": "Ingeniería, Arquitectura, Urbanismo y afines",
+      "total": 15661,
+      "icono": "engranaje"
+    },
+    {
+      "nombre": "Economía, Administración, Contaduría y afines",
+      "total": 10444,
+      "icono": "grafico"
+    },
+    {
+      "nombre": "Bellas Artes",
+      "total": 2004,
+      "icono": "paleta"
+    },
+    {
+      "nombre": "Matemáticas y Ciencias Naturales",
+      "total": 625,
+      "icono": "matraz"
+    },
+    {
+      "nombre": "Humanidades y Ciencias Religiosas",
+      "total": 207,
+      "icono": "libro"
+    },
+    {
+      "nombre": "Ciencias de la Educación",
+      "total": 44,
+      "icono": "birrete"
+    },
+    {
+      "nombre": "Ciencias Sociales, Derecho y Ciencias Políticas",
+      "total": 25,
+      "icono": "balanza"
+    }
+  ],
+  "por_sexo": [
+    {
+      "nombre": "Masculino",
+      "total": 16231
+    },
+    {
+      "nombre": "Femenino",
+      "total": 12778
+    },
+    {
+      "nombre": "No registra",
+      "total": 1
+    }
+  ],
+  "por_estrato": [
+    {
+      "nombre": "2",
+      "total": 14730
+    },
+    {
+      "nombre": "3",
+      "total": 7520
+    },
+    {
+      "nombre": "1",
+      "total": 6114
+    },
+    {
+      "nombre": "4",
+      "total": 516
+    },
+    {
+      "nombre": "5",
+      "total": 104
+    },
+    {
+      "nombre": "6",
+      "total": 24
+    },
+    {
+      "nombre": "No registra",
+      "total": 2
+    }
+  ],
+  "por_modalidad": [
+    {
+      "nombre": "Presencial",
+      "total": 24497
+    },
+    {
+      "nombre": "Virtual",
+      "total": 4422
+    },
+    {
+      "nombre": "Semipresencial",
+      "total": 91
+    }
+  ],
+  "por_tipo_programa": [
+    {
+      "nombre": "Pregrado",
+      "total": 28407
+    },
+    {
+      "nombre": "Posgrado",
+      "total": 603
+    }
+  ],
+  "top_ciudades_nacimiento": [
+    {
+      "nombre": "Medellín",
+      "total": 15122
+    },
+    {
+      "nombre": "Bello",
+      "total": 1143
+    },
+    {
+      "nombre": "Itagüí",
+      "total": 880
+    },
+    {
+      "nombre": "Bogotá D.C",
+      "total": 571
+    },
+    {
+      "nombre": "Envigado",
+      "total": 377
+    },
+    {
+      "nombre": "Quibdo",
+      "total": 321
+    },
+    {
+      "nombre": "Apartado",
+      "total": 298
+    },
+    {
+      "nombre": "Caracas",
+      "total": 242
+    },
+    {
+      "nombre": "Montelibano",
+      "total": 235
+    },
+    {
+      "nombre": "Caucasia",
+      "total": 233
+    }
+  ],
+  "top_programas": [
+    {
+      "nombre": "Tecnología en Desarrollo de Software",
+      "total": 4439
+    },
+    {
+      "nombre": "Tecnología en Gestión Administrativa - Modalidad Virtual",
+      "total": 2305
+    },
+    {
+      "nombre": "Tecnología en Gestión Administrativa",
+      "total": 2226
+    },
+    {
+      "nombre": "Contaduría Pública",
+      "total": 1787
+    },
+    {
+      "nombre": "Ingeniería Mecatrónica",
+      "total": 1563
+    },
+    {
+      "nombre": "Administración Tecnológica",
+      "total": 1447
+    },
+    {
+      "nombre": "Tecnología en Análisis de Costos y Presupuestos",
+      "total": 1398
+    },
+    {
+      "nombre": "Ingeniería Biomédica",
+      "total": 1258
+    },
+    {
+      "nombre": "Tecnología en Análisis de Costos y Presupuestos - Modalidad Virtual",
+      "total": 766
+    },
+    {
+      "nombre": "Tecnología en Diseño y Programación de Soluciones de Software como Servicio Modalidad Virtual",
+      "total": 765
+    }
+  ],
+  "sedes_por_facultad": [
+    {
+      "Sede Agrupada": "CASTILLA",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 130
+    },
+    {
+      "Sede Agrupada": "CASTILLA",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 3
+    },
+    {
+      "Sede Agrupada": "CASTILLA",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 65
+    },
+    {
+      "Sede Agrupada": "FLORESTA",
+      "Facultad": "Facultad de Artes y Humanidades",
+      "total": 1482
+    },
+    {
+      "Sede Agrupada": "FLORESTA",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 8
+    },
+    {
+      "Sede Agrupada": "FLORESTA",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 10
+    },
+    {
+      "Sede Agrupada": "FLORESTA",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 2
+    },
+    {
+      "Sede Agrupada": "FRATERNIDAD MEDELLÍN",
+      "Facultad": "Facultad de Artes y Humanidades",
+      "total": 1
+    },
+    {
+      "Sede Agrupada": "FRATERNIDAD MEDELLÍN",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 7008
+    },
+    {
+      "Sede Agrupada": "FRATERNIDAD MEDELLÍN",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 126
+    },
+    {
+      "Sede Agrupada": "FRATERNIDAD MEDELLÍN",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 6518
+    },
+    {
+      "Sede Agrupada": "Otras sedes",
+      "Facultad": "Facultad de Artes y Humanidades",
+      "total": 42
+    },
+    {
+      "Sede Agrupada": "Otras sedes",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 1120
+    },
+    {
+      "Sede Agrupada": "Otras sedes",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 44
+    },
+    {
+      "Sede Agrupada": "Otras sedes",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 493
+    },
+    {
+      "Sede Agrupada": "ROBLEDO",
+      "Facultad": "Facultad de Artes y Humanidades",
+      "total": 1049
+    },
+    {
+      "Sede Agrupada": "ROBLEDO",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 1603
+    },
+    {
+      "Sede Agrupada": "ROBLEDO",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 3188
+    },
+    {
+      "Sede Agrupada": "ROBLEDO",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 2414
+    },
+    {
+      "Sede Agrupada": "VIRTUAL",
+      "Facultad": "Facultad de Artes y Humanidades",
+      "total": 220
+    },
+    {
+      "Sede Agrupada": "VIRTUAL",
+      "Facultad": "Facultad de Ciencias Económicas y Administrativas",
+      "total": 2533
+    },
+    {
+      "Sede Agrupada": "VIRTUAL",
+      "Facultad": "Facultad de Ciencias Exactas y Aplicadas",
+      "total": 101
+    },
+    {
+      "Sede Agrupada": "VIRTUAL",
+      "Facultad": "Facultad de Ingenierías",
+      "total": 850
+    }
+  ],
+  "programas_por_area": {
+    "Bellas Artes": [
+      {
+        "nombre": "Ingeniería en Diseño Industrial",
+        "total": 755
+      },
+      {
+        "nombre": "Artes de la Grabación y Producción Musical",
+        "total": 436
+      },
+      {
+        "nombre": "Artes Visuales",
+        "total": 398
+      },
+      {
+        "nombre": "Cine",
+        "total": 389
+      },
+      {
+        "nombre": "Maestría en Artes Digitales",
+        "total": 19
+      },
+      {
+        "nombre": "Maestría en Diseño",
+        "total": 7
+      }
+    ],
+    "Ciencias Sociales, Derecho y Ciencias Políticas": [
+      {
+        "nombre": "Maestría en Estudios de Ciencia Tecnología Sociedad e Innovación - Virtual",
+        "total": 17
+      },
+      {
+        "nombre": "Maestría en Estudios de Ciencia, Tecnología, Sociedad e Innovación",
+        "total": 8
+      }
+    ],
+    "Ciencias de la Educación": [
+      {
+        "nombre": "Maestría en Ciencias: Innovación en Educación",
+        "total": 44
+      }
+    ],
+    "Economía, Administración, Contaduría y afines": [
+      {
+        "nombre": "Tecnología en Gestión Administrativa - Modalidad Virtual",
+        "total": 2305
+      },
+      {
+        "nombre": "Tecnología en Gestión Administrativa",
+        "total": 2226
+      },
+      {
+        "nombre": "Contaduría Pública",
+        "total": 1787
+      },
+      {
+        "nombre": "Administración Tecnológica",
+        "total": 1447
+      },
+      {
+        "nombre": "Tecnología en Análisis de Costos y Presupuestos",
+        "total": 1398
+      },
+      {
+        "nombre": "Tecnología en Análisis de Costos y Presupuestos - Modalidad Virtual",
+        "total": 766
+      }
+    ],
+    "Humanidades y Ciencias Religiosas": [
+      {
+        "nombre": "Interpretación y Traducción Lengua de Señas Colombiana - Español",
+        "total": 207
+      }
+    ],
+    "Ingeniería, Arquitectura, Urbanismo y afines": [
+      {
+        "nombre": "Tecnología en Desarrollo de Software",
+        "total": 4439
+      },
+      {
+        "nombre": "Ingeniería Mecatrónica",
+        "total": 1563
+      },
+      {
+        "nombre": "Ingeniería Biomédica",
+        "total": 1258
+      },
+      {
+        "nombre": "Tecnología en Diseño y Programación de Soluciones de Software como Servicio Modalidad Virtual",
+        "total": 765
+      },
+      {
+        "nombre": "Tecnología en Sistemas Electromecánicos",
+        "total": 640
+      },
+      {
+        "nombre": "Ciencias Ambientales",
+        "total": 637
+      }
+    ],
+    "Matemáticas y Ciencias Naturales": [
+      {
+        "nombre": "Química Industrial",
+        "total": 496
+      },
+      {
+        "nombre": "CIENCIA Y TECNOLOGÍA DE LOS ALIMENTOS",
+        "total": 68
+      },
+      {
+        "nombre": "Física",
+        "total": 42
+      },
+      {
+        "nombre": "Doctorado en Ciencia y Tecnología",
+        "total": 10
+      },
+      {
+        "nombre": "ESPECIALIZACIÓN EN BIOINFORMÁTICA",
+        "total": 9
+      }
+    ]
+  }
+}
