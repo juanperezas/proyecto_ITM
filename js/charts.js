@@ -3,6 +3,11 @@
 let chartsInstancias = {};
 
 function crearTodasLasGraficas(data) {
+  if (typeof Chart === 'undefined') {
+    console.warn("Chart.js no está cargado. Revisa la conexión o bloqueador de anuncios.");
+    return;
+  }
+
   // Paleta de colores basada en el estilo CSS (--azul, --azul-claro, --dorado)
   const colores = {
     azul: '#1f3a5f',
